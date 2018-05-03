@@ -76,6 +76,30 @@ def convert_input(params) #converts the meats input into a usable array.
 	return converted
 end
 
+def add_order_totals(order=[{"type"=>"pizza", "ingredients"=>[{"price" => 5}]}, {"price" => 15}], delivery = 5)
+	subtotal = 0.to_f
+
+	order.each do |item|
+		if item["type"] == "pizza"
+			item["ingredients"].each do |ingredient|
+				subtotal += ingredient["price"].to_f
+			end
+		else
+			subtotal += item["price"].to_f
+		end
+	end
+	tax = subtotal * 0.06.to_f
+	total = (subtotal + tax + delivery).to_f
+
+	price = {
+		"subtotal" => subtotal,
+		"tax" => tax,
+		"total" => (subtotal + tax + delivery).to_f,
+		"delivery" => delivery
+	}
+	return price
+end
+
 def size
 	{"small crust" => 2, "medium crust" => 3, "large crust" => 4, "XL crust" => 5}
 end

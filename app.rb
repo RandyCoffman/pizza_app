@@ -146,12 +146,12 @@ get '/final' do
 end
 
 post '/on-to-checkout' do
-	session[:total_price] += params[:delivery?].to_i
+	session[:total_price] = add_order_totals(session[:current_order], params[:delivery].to_i)
 	redirect "/checkout"
 end
 
 get '/checkout' do
-	erb :checkout, locals:{total_price: session[:total_price]}
+	erb :checkout, locals:{price: session[:total_price]}
 end
 
 post '/on-to-thank-you' do
