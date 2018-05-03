@@ -5,7 +5,22 @@
 </head>
 <body>
 	<h1>Payment</h1>
-	<h2>The total is <%= session[:total_price] %></h2>
+	<ul>
+		<li>
+			Subtotal: $<%=sprintf("%.02f",price["subtotal"])%><br>
+		</li>
+		<li>
+			Tax: $<%= sprintf("%.02f",price["tax"])%><br>
+		</li>
+		<% if price["delivery"] != 0%>
+			<li>
+				Delivery Fee: $<%=sprintf("%.02f",price["delivery"]) %><br>
+			</li>
+		<% end%>
+		<li>
+			Total: $<%=sprintf("%.02f",price["total"])%>
+		</li>
+	</ul>
 	<h3>How would you like to pay?</h3>
 	<form method="post" action="/on-to-thank-you">
 		<div>
