@@ -1,6 +1,4 @@
 require 'sinatra'
-require 'stripe'
-require 'stripe_event'
 require_relative 'refactored_pizza.rb'
 
 enable :sessions
