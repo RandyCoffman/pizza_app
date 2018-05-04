@@ -155,7 +155,14 @@ get '/checkout' do
 end
 
 post '/on-to-thank-you' do
-	redirect "/thanks"
+	if params[:payment] = "stripe"
+		redirect "/stripe"
+	else
+		redirect "/thanks"
+end
+
+get '/stripe' do
+	erb :stripe, locals:{price: session[:total_price]}
 end
 
 get '/thanks' do
