@@ -1,4 +1,6 @@
 require 'sinatra'
+require 'stripe'
+require 'stripe_event'
 require_relative 'refactored_pizza.rb'
 
 enable :sessions
@@ -159,6 +161,7 @@ post '/on-to-thank-you' do
 		redirect "/stripe"
 	else
 		redirect "/thanks"
+	end
 end
 
 get '/stripe' do

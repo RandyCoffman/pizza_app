@@ -2,6 +2,18 @@
 <html>
 <head>
 	<title></title>
+ 	 	<script>
+ 	 	Stripe() {
+		    src = "https://checkout.stripe.com/checkout.js" class="stripe-button"
+		    data-key = "pk_test_pBzNYHJxB9HFmcK673x8uZl4"
+		    data-amount = <%= price["total"] * 100 %>
+		    data-name = "Stripe.com"
+		    data-description = "Test account"
+		    data-image = "https://stripe.com/img/documentation/checkout/marketplace.png"
+		    data-locale = "auto"
+		    data-zip-code = "true">
+		}
+  		</script>
 </head>
 <body>
 	<h1>Payment</h1>
@@ -33,7 +45,7 @@
 			<input type="radio" name="payment" value="cash">Cash
 		</div>
 		<div>
-			<input type="radio" name="payment" value="stripe">Stripe
+			<input type="radio" name="payment" value="stripe" trigger="stripe()">Stripe
 		</div>
 		<div>
 			<input type="submit" value="pay">
