@@ -17,11 +17,13 @@ get '/size' do
 		'type' => "pizza",
 		'ingredients' => []
 	}
+	p session[:pizza]
 	erb :pizza_size_page1
 end
 
 post '/on-to-crust' do
 	convert_pizza(params[:selection], session[:pizza])
+	p session[:pizza]
 	redirect '/crust'
 end
 
@@ -35,11 +37,13 @@ post '/on-to-meats' do
 end
 
 get '/meats' do
+	p session[:pizza]
 	erb :meats_page3
 end
 
 post '/on-to-veggies' do
 	convert_pizza(params[:selection], session[:pizza])
+	p session[:pizza]
 	redirect '/veggies'
 end
 

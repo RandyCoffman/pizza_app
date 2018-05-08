@@ -11,7 +11,7 @@
 						<% sauces.each do |key, value| %>
 							<tr>
 								<td>
-									<input type="radio" name="selection" value='<%= key %>, <%= value %>' required>
+									<input type="radio" name="selection[]" value='<%= key %>, <%= value %>' required>
 									<%= "$#{value} #{key}" %>
 								</td>
 								<td>

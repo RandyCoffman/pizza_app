@@ -13,7 +13,7 @@
 	    		<tr>
             <td>
               <!-- <input type="radio" name="selection" value='<%= key %>!!<%= value %>'> -->
-              <input type="radio" name="selection" value='<%= key %>, <%= value %>' required>
+              <input type="checkbox" name="selection[]" value='<%= key %>, <%= value %>'>
               <%= "$#{value} #{key}" %>
             </td>
             <td>

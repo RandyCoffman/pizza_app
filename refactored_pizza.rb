@@ -1,6 +1,8 @@
 def convert_pizza(params, session)
-	selection = params.split(",")
-	session["ingredients"] << {'ingredient' => selection[0],'price' => selection[1].to_f}
+	params.each_with_index do |item, index|
+		selection = params[index].split(",")
+		session["ingredients"] << {'ingredient' => selection[0],'price' => selection[1].to_f}
+	end
 end
 
 def convert_sides(params, session, quantity)
